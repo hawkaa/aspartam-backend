@@ -5,7 +5,7 @@ import javax.inject._
 import play.api.libs.json.Json
 import play.api.mvc._
 
-class AspartamController @Inject()(cc: ControllerComponents, mat: Materializer, repository: PolygonRepository)
+class AspartamController @Inject()(cc: ControllerComponents, mat: Materializer, repository: FeaturesCollectionRepository)
   extends AbstractController(cc) {
 
   def get() = Action {
@@ -26,5 +26,10 @@ class AspartamController @Inject()(cc: ControllerComponents, mat: Materializer, 
          Created
       }
       .getOrElse(BadRequest)
+  }
+
+  def reset() = Action {
+    repository.reset()
+    Ok
   }
 }
