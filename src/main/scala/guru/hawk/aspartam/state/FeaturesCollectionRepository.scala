@@ -1,7 +1,7 @@
 /*
  * Copyright(c) 2018 Schibsted Media Group. All rights reserved.
  */
-package guru.hawk.aspartam.controllers
+package guru.hawk.aspartam.state
 
 import com.google.inject.ImplementedBy
 import play.api.libs.json.JsValue

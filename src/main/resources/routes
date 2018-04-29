@@ -1,4 +1,4 @@
 GET     /api/polygons   guru.hawk.aspartam.controllers.AspartamController.get
 POST    /api/polygons   guru.hawk.aspartam.controllers.AspartamController.post
-GET     /api/reset   guru.hawk.aspartam.controllers.AspartamController.reset
+GET     /api/reset      guru.hawk.aspartam.controllers.AspartamController.reset
 

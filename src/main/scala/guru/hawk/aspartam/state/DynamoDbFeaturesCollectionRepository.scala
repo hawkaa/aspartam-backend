@@ -1,7 +1,7 @@
 /*
  * Copyright(c) 2018 Schibsted Media Group. All rights reserved.
  */
-package guru.hawk.aspartam.controllers
+package guru.hawk.aspartam.state
 
 import java.util.UUID
 
@@ -27,6 +27,8 @@ import scala.collection.JavaConverters._
  *
  * And yes, did I mention that separate items are indeed easier to manipulate from other interfaces compared to the
  * entire GeoJSON string stored as one item.
+ *
+ * TODO: Add tests for this thing
  */
 class DynamoDbFeaturesCollectionRepository @Inject()(config: Configuration) extends FeaturesCollectionRepository {
 
@@ -90,7 +92,7 @@ class DynamoDbFeaturesCollectionRepository @Inject()(config: Configuration) exte
       .getItems
       .asScala
       .map { item =>
-        val id = item.get(IdField).getS()
+        val id = item.get(IdField).getS
         client.deleteItem(TableName, Map(IdField -> new AttributeValue(id)).asJava)
       }
   }
