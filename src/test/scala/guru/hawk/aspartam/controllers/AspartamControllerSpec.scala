@@ -14,7 +14,7 @@ class AspartamControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
   "AspartamControllerSpec polygons GET" should {
 
     def getController(json: Option[JsValue]) = {
-      val repo = new InMemoryPolygonRepository()
+      val repo = new InMemoryFeaturesCollectionRepository()
       json.foreach(repo.put(_))
       new AspartamController(stubControllerComponents(), app.materializer, repo)
     }
@@ -39,7 +39,7 @@ class AspartamControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
 
     "add json to the repo" in {
       implicit val mat = app.materializer
-      val repo = new InMemoryPolygonRepository()
+      val repo = new InMemoryFeaturesCollectionRepository()
       val controller = new AspartamController(stubControllerComponents(), mat, repo)
       val response = controller.post()
         .apply(FakeRequest(POST, "/").withJsonBody(Json.obj("foo" -> "bar")))
@@ -50,7 +50,7 @@ class AspartamControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
 
     "return 400 if invalid json" in {
       implicit val mat = app.materializer
-      val repo = new InMemoryPolygonRepository()
+      val repo = new InMemoryFeaturesCollectionRepository()
       val controller = new AspartamController(stubControllerComponents(), mat, repo)
       val response = controller.post()
         .apply(FakeRequest(POST, "/").withTextBody("foobar"))

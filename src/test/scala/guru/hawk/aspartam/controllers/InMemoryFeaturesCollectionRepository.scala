@@ -2,10 +2,9 @@
  * Copyright(c) 2018 Schibsted Media Group. All rights reserved.
  */
 package guru.hawk.aspartam.controllers
-
 import play.api.libs.json.JsValue
 
-class DynamoDbPolygonRepository extends PolygonRepository {
+class InMemoryFeaturesCollectionRepository extends FeaturesCollectionRepository {
 
   private [this] var polygons: Option[JsValue] = None
 
@@ -13,4 +12,5 @@ class DynamoDbPolygonRepository extends PolygonRepository {
 
   override def put(p: JsValue): Unit = polygons = Some(p)
 
+  override def reset(): Unit = { /* not implemented */ }
 }
