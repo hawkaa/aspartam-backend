@@ -1,0 +1,47 @@
+apply plugin: 'scala'
+apply plugin: 'play'
+
+def playVersion = '2.6.13'
+def scalaMainVersion = "2.12"
+def scalaVersion = "2.12.6"
+
+model {
+    components {
+        play {
+            platform play: playVersion, scala: scalaMainVersion, java: '1.8'
+            injectedRoutesGenerator = true
+
+            sources {
+                scala {
+                    source.srcDir "src/main/scala"
+                }
+                resources {
+                    source.srcDir "src/main/resources"
+                }
+                routes {
+                    source.srcDir "src/main/resources"
+                }
+            }
+        }
+    }
+}
+
+ext.deps = [
+        "org.scala-lang:scala-library:$scalaVersion",
+        "com.typesafe.play:play-guice_$scalaMainVersion:$playVersion",
+        "com.typesafe.play:play-logback_$scalaMainVersion:$playVersion"
+]
+
+dependencies {
+    compile(deps)
+    play(deps)
+    testCompile "org.scalatestplus.play:scalatestplus-play_${scalaMainVersion}:3.1.+"
+}
+
+repositories {
+    jcenter()
+    maven {
+        name "lightbend-maven-releases"
+        url "https://repo.lightbend.com/lightbend/maven-release"
+    }
+}

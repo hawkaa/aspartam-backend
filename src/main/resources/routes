@@ -1,0 +1,3 @@
+GET     /api/polygons   guru.hawk.aspartam.controllers.AspartamController.get
+POST    /api/polygons   guru.hawk.aspartam.controllers.AspartamController.post
+
