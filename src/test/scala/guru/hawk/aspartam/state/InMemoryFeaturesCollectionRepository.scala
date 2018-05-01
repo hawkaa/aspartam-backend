@@ -1,7 +1,8 @@
 /*
  * Copyright(c) 2018 Schibsted Media Group. All rights reserved.
  */
-package guru.hawk.aspartam.controllers
+package guru.hawk.aspartam.state
+
 import play.api.libs.json.JsValue
 
 class InMemoryFeaturesCollectionRepository extends FeaturesCollectionRepository {

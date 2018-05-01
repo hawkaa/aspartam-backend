@@ -1,5 +1,6 @@
 package guru.hawk.aspartam.controllers
 
+import guru.hawk.aspartam.state.InMemoryFeaturesCollectionRepository
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatestplus.play.PlaySpec
@@ -35,7 +36,6 @@ class AspartamControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
   }
 
   "AspartamControllerSpec polygons POST" should {
-
 
     "add json to the repo" in {
       implicit val mat = app.materializer
