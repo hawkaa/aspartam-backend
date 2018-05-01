@@ -28,6 +28,7 @@ model {
 
 ext.deps = [
         "org.scala-lang:scala-library:$scalaVersion",
+        "com.typesafe.play:filters-helpers_$scalaMainVersion:$playVersion",
         "com.typesafe.play:play-guice_$scalaMainVersion:$playVersion",
         "com.typesafe.play:play-logback_$scalaMainVersion:$playVersion",
         "com.amazonaws:aws-java-sdk-dynamodb:1.11.319"
